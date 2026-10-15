@@ -1,0 +1,33 @@
+Slip14  Q1)Write a program to implement BFS traversal for a graph. 
+ From collections import deque  
+Graph = {    
+‘A’: [‘B’, ‘C’],     
+‘B’: [‘D’, ‘E’],     
+‘C’: [‘F’],     
+‘D’: [],     
+‘E’: [],     
+‘F’: [] }  
+Def bfs(start):     
+Visited = set()     
+Queue = deque([start])      
+While queue:         
+Node = queue.popleft()         
+If node not in visited:             
+Print(node, end=” “)            
+Visited.add(node)             
+Queue.extend(n for n in graph[node] if n not in visited) 
+Bfs(‘A’) 
+
+Q2)Write a program or report to compare Supervised Learning and Unsupervised Learning techniques
+From sklearn.cluster import KMeans 
+From sklearn.tree import DecisionTreeClassifier
+X = [[1], [2], [3], [4]]
+Y = [0, 0, 1, 1] 
+Model = DecisionTreeClassifier() 
+Model.fit(X, y) 
+Print(“Supervised Prediction:”, 
+model.predict([[3]])) 
+Data = [[1], [2], [8], [9]] 
+Km = KMeans(n_clusters=2, random_state=0, n_init=10)
+Km.fit(data) 
+Print(“Unsupervised Clusters:”, km.labels_) 

@@ -1,0 +1,29 @@
+Slip9 Q1)Write a program to demonstrate the Hill Climbing Algorithm for finding the Maximum value of a simple objective function.  
+Def f(x):    
+ Return -x**2 + 6*x  X = 0 
+While True:     
+If f(x + 1) > f(x):         
+X += 1     
+Elif f(x – 1) > f(x):         
+X -= 1     
+Else:         
+Break  
+Print(“Maximum value:”, f(x)) 
+Print(“At x =”, x)  
+
+Q2)Write a program to implement the Forward Chaining inference mechanism.  
+Facts = {“A”, “B”} Rules = [
+({“A”, “B”}, “C”),    
+({“C”}, “D”),     
+({“D”}, “E”) 
+]  
+While True:     
+New_fact = False     
+For condition, result in rules:         
+If condition.issubset(facts) and result not in facts:             
+Facts.add(result)             
+Print(“New fact:”, result)             
+New_fact = True     
+If not new_fact:         
+Break  
+Print(“Final facts:”, facts)   

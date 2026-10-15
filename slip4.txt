@@ -1,0 +1,30 @@
+Slip4 Q1)Write a program to solve a state-space search problem using BFS.
+ Start Vertex = A From collections import deque  
+Graph = {    
+‘A’: [‘B’, ‘C’],     
+‘B’: [‘D’, ‘E’],     
+‘C’: [‘F’],     
+‘D’: [], 
+‘E’: [], 
+‘F’: [] 
+}  
+Def bfs(start):     
+Visited = set()     
+Queue = deque([start])      
+While queue:         
+Node = queue.popleft()         
+If node not in visited:             
+Print(node, end=” “)             
+Visited.add(node)
+Queue.extend(graph[node])
+Bfs(‘A’)
+
+
+ Q2)Write a program to implement Predicate Logic using predicates, Variables, and quantifier.
+ From sympy import symbols, ForAll, Exists
+ X = symbols(‘x’)
+ Print(“Predicate: P(x) = x > 0”)
+ Print(“Universal Quantifier:”,
+ ForAll(x, x > 0)) 
+ Print(“Existential Quantifier:”,
+ Exists(x, x > 0)) 

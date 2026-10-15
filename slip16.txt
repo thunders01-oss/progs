@@ -1,0 +1,41 @@
+Slip16 Q1)Write a program to implement Depth Limited Search (DLS). 
+Def dls(graph, node, goal, limit):    
+Print(node, end=” “)      
+If node == goal:         
+Return True      
+If limit <= 0:         
+Return False      
+For child in graph[node]:         
+If dls(graph, child, goal, limit – 1):             
+Return True      
+Return False   
+Graph = {
+‘A’: [‘B’, ‘C’],     
+‘B’: [‘D’, ‘E’],     
+‘C’: [‘F’],     
+‘D’: [],     
+‘E’: [],     
+‘F’: [] }  
+Print(“Traversal:”) 
+If dls(graph, ‘A’, ‘E’, 2): 
+Print(“\nGoal found!”) 
+Else: 
+Print(“\nGoal not found!”) 
+
+Q2)Write a program to implement the Backward Chaining inference Mechanism. 
+Facts = {“A”, “B”}
+ Rules = { 
+“C”: [“A”, “B”], 
+“D”: [“C”], 
+“E”: [“D”] } 
+Def backward_chaining(goal): 
+If goal in facts: 
+Return True 
+If goal in rules: 
+Return all(backward_chaining(f) for f in rules[goal]) 
+Return False  
+Goal = “E”  
+If backward_chaining(goal):     
+Print(“Goal”, goal, “can be proved.”) 
+Else:     
+Print(“Goal”, goal, “cannot be proved.”) 

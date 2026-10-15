@@ -1,0 +1,36 @@
+Slip10 Q1)Write a program to implement Means-End Analysis for solving a goal-Based problem  
+Def means_end(current, goal):     
+Print(“Current state:”, current)      
+If current == goal:         
+Print(“Goal achieved!”)         
+Return      
+If current < goal:         
+Print(“Action: Increase state”)         
+Means_end(current + 1, goal)     
+Else:         
+Print(“Action: Decrease state”)         
+Means_end(current – 1, goal)  
+Means_end(2, 5) 
+
+Q2)Write a program to implement the Random Forest Classifier for  Classification tasks.
+ Dataset = { 
+‘Study_Hours’: [2, 3, 4, 5, 6, 7, 1, 2, 5, 8], 
+‘Attendance’: [60, 65, 70, 75, 80, 85, 55, 62, 78, 90], 
+‘Assignment_Score’: [55, 60, 65, 70, 75, 80, 50, 58, 72, 85], 
+‘Result’: [‘Fail’, ‘Fail’, ‘Pass’, ‘Pass’, ‘Pass’,’Pass’, ‘Fail’, ‘Fail’, ‘Pass’, ‘Pass’
+ Import pandas as pd
+ From sklearn.ensemble 
+import RandomForestClassifier
+ Data = {
+ ‘Study_Hours’: [2, 3, 4, 5, 6, 7, 1, 2, 5, 8],
+ ‘Attendance’: [60, 65, 70, 75, 80, 85, 55, 62, 78, 90],
+ ‘Assignment_Score’: [55, 60, 65, 70, 75, 80, 50, 58, 72, 85], 
+‘Result’: [‘Fail’, ‘Fail’, ‘Pass’, ‘Pass’, ‘Pass’, ‘Pass’, ‘Fail’, ‘Fail’, ‘Pass’, ‘Pass’]
+ }
+ Df = pd.DataFrame(data)
+ X = df[[‘Study_Hours’, ‘Attendance’, ‘Assignment_Score’]] 
+ Y = df[‘Result’]
+ Model = RandomForestClassifier(n_estimators=100, random_state=42)
+ Model.fit(X, y)  
+Prediction = model.predict([[4, 70, 65]])
+ Print(“Predicted Result:”, prediction[0]) 

@@ -1,0 +1,46 @@
+Slip18 Q1)Write a program to implement the A* Search Algorithm to find the Shortest path between a source node and a destination node 
+Import heapq  
+Def astar(graph, h, start, goal):     
+Queue = [(h[start], 0, start, [start])]     
+Visited = set()      
+While queue:        
+_, cost, node, path = heapq.heappop(queue)          
+If node == goal:             
+Return path, cost          
+If node in visited:             
+Continue         
+Visited.add(node)          
+For neighbor, weight in graph[node]:             
+If neighbor not in visited:                 
+New_cost = cost + weight                 
+Heapq.heappush(queue, (
+New_cost + h[neighbor],                     
+New_cost,                     
+Neighbor,                     
+Path + [neighbor]                 
+))      
+Return None, float(‘inf’)  
+Graph = {     
+‘A’: [(‘B’, 1), (‘C’, 4)],     
+‘B’: [(‘D’, 2), (‘E’, 5)],     
+‘C’: [(‘E’, 1)],     
+‘D’: [(‘E’, 1)],     
+‘E’: [] }  
+H = {
+‘A’: 4, 
+‘B’: 3, 
+‘C’: 1, 
+‘D’: 1, 
+‘E’: 0}  
+Path, cost = astar(graph, h, ‘A’, ‘E’) 
+Print(“Shortest Path:”, path) 
+Print(“Total Cost:”, cost) 
+
+Q2)Write a program to implement an Artificial Neural Network (ANN) for a Linear Regression problem 
+import numpy as np 
+from sklearn.neural_network import MLPRegressor 
+X = np.array([[1], [2], [3], [4], [5]]) 
+y = np.array([2, 4, 6, 8, 10]) 
+model = MLPRegressor(hidden_layer_sizes=(), max_iter=5000, random_state=1) 
+model.fit(X, y) 
+print("Predicted value:", round(model.predict([[6]])[0], 2)) 

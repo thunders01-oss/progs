@@ -1,0 +1,29 @@
+Slip22 Q1)Write a program to solve the Tower of Hanoi Problem using state-space Representation.
+Def hanoi(n, source, auxiliary, destination): 
+If n == 1: 
+Print(“Move disk 1 from”, source, “to”, destination) 
+Return      
+Hanoi(n – 1, source, destination, auxiliary)     
+Print(“Move disk”, n, “from”, source, “to”, destination)     
+Hanoi(n – 1, auxiliary, source, destination)  Hanoi(3, ‘A’, ‘B’, ‘C’)   
+
+Q2)Write a program to solve the N-Queens Problem using the Backtracking Algorithm.  
+Def solve(board, row, n):     
+If row == n:         
+For r in board:             
+Print(“ “.join(“Q” if x else “.” For x in r))         
+Return True      
+For col in range(n):         
+If all(board[i][col] == 0 for I in range(row)) and \
+All(board[i][j] == 0 for I, j in                
+[(row-1-k, col-1-k) for k in range(row)                 
+If col-1-k >= 0] +                
+[(row-1-k, col+1+k) for k in range(row)                 
+If col+1+k < n]):             
+Board[row][col] = 1             
+If solve(board, row + 1, n):                 
+Return True Board[row][col] = 0 
+Return False 
+N = 4 Board = [[0] * n for _ in range(n)]
+If not solve(board, 0, n): 
+Print(“No solution exists”) 

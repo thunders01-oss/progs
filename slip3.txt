@@ -1,0 +1,44 @@
+Slip3 Q1)Write a program to implement BFS traversal for a graph.
+ From collections import deque 
+ Def bfs(graph, start):    
+ Visited = set()    
+ Queue = deque([start])      
+While queue:         
+Node = queue.popleft()         
+If node not in visited:             
+Print(node, end=” “)             
+Visited.add(node)             
+Queue.extend(graph[node])  
+Graph = {
+‘A’: [‘B’, ‘C’],     
+‘B’: [‘D’, ‘E’],     
+‘C’: [‘F’],     
+‘D’: [],     
+‘E’: [],     
+‘F’: []
+ } 
+bfs(graph, ‘A’)
+
+  Q2) Write a program to implement Alpha-Beta Pruning for optimizing the Minimax search process. 
+Def alphabeta(depth, node, alpha, beta, maximizing):     
+If depth == 2:         
+Return tree[node]      
+If maximizing:         
+Best = -999         
+For I in range(2):             
+Val = alphabeta(depth + 1, node * 2 + I, alpha, beta, False)             
+Best = max(best, val)             
+Alpha = max(alpha, best)             
+If beta <= alpha:                 
+Break         
+Return best     
+Else:         
+Best = 999         
+For I in range(2):             
+Val = alphabeta(depth + 1, node * 2 + I, alpha, beta, True)             
+Best = min(best, val)             
+Beta = min(beta, best)             
+If beta <= alpha:                 
+Break         
+Return best  Tree = [3, 5, 6, 9, 1, 2, 0, -1] 
+Print(“Optimal Value:”, alphabeta(0, 0, -999, 999, True)) 

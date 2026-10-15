@@ -1,0 +1,51 @@
+Slip11 Q1)Write a program or report that compares Minimax and Alpha-Beta Pruning On the same game tree.  
+Def minimax(tree, depth, maximizing):     
+If depth == 2:        
+Return tree.pop(0)      
+If maximizing:         
+Return max(minimax(tree, depth + 1, False),                    
+Minimax(tree, depth + 1, False))     
+Else:         
+Return min(minimax(tree, depth + 1, True),                    
+Minimax(tree, depth + 1, True))   
+Def alpha_beta(values, depth, alpha, beta, maximizing):     
+If depth == 2:         
+Return values.pop(0)      
+If maximizing:         
+Best = float(‘-inf’)         
+For I in range(2):             
+Best = max(best, alpha_beta(values, depth + 1, alpha, beta, False))             
+Alpha = max(alpha, best)             
+If beta <= alpha:                 
+Break         
+Return best     
+Else:         
+Best = float(‘inf’)         
+For I in range(2):             
+Best = min(best, alpha_beta(values, depth + 1, alpha, beta, True))             
+Beta = min(beta, best)             
+If beta <= alpha:                 
+Break         
+Return best   
+Tree1 = [3, 5, 6, 9, 1, 2, 0, -1] 
+Tree2 = [3, 5, 6, 9, 1, 2, 0, -1]  
+Print(“Minimax Value:”, minimax(tree1, 0, True)) 
+Print(“Alpha-Beta Value:”, alpha_beta(tree2, 0, float(‘-inf’), float(‘inf’), True))   
+
+Q2)Write a program to implement the Backward Chaining inference mechanism
+Facts = {“A”, “B”} 
+Rules = { “C”: [“A”, “B”],
+ “D”: [“C”], 
+“E”: [“D”] 
+} 
+Def backward_chaining(goal): 
+If goal in facts: 
+Return True 
+If goal in rules:
+Return all(backward_chaining(fact) for fact in rules[goal]) 
+Return False 
+Goal = “E” 
+If backward_chaining(goal): 
+Print(“Goal”, goal, “can be proved.”) 
+Else: 
+Print(“Goal”, goal, “cannot be proved.”) 

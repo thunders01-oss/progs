@@ -1,0 +1,28 @@
+Slip6 Q1)Write a program to implement DFS traversal for a graph.
+ Def dfs(graph, node, visited):    
+If node not in visited:         
+Print(node, end=” “)         
+Visited.add(node)         
+For n in graph[node]:             
+Dfs(graph, n, visited)  
+Graph = {     
+‘A’: [‘B’, ‘C’],     
+‘B’: [‘D’, ‘E’],     
+‘C’: [‘F’],     
+‘D’: [], 
+‘E’: [], 
+‘F’: [] 
+}  
+Dfs(graph, ‘A’, set()) 
+
+ Q2) Write a program to implement a Non-Linear Support Vector Machine  (SVM) using the Radial Basis Function (RBF) Kernel. 
+Input Data:
+X = [ [1, 2], [2, 3],[5, 5] ] 
+Class Labels :  y = [0, 0, 1] 
+Test Input : [4, 4]  
+From sklearn.svm import SVC 
+X = [[1, 2], [2, 3], [5, 5]] 
+Y = [0, 0, 1] 
+Model = SVC(kernel=’rbf’) 
+Model.fit(X, y) 
+Print(“Prediction:”, model.predict([[4, 4]])) 

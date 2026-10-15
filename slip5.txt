@@ -1,0 +1,30 @@
+Slip5
+ Q1)Write a program to implement Depth Limited Search (DLS). 
+ Def dls(graph, node, limit): 
+Print(node, end=” “) 
+If limit == 0: 
+Return For child in graph[node]: 
+Dls(graph, child, limit – 1) 
+Graph = { 
+‘A’: [‘B’, ‘C’], 
+‘B’: [‘D’, ‘E’], 
+‘C’: [‘F’],     
+‘D’: [], 
+‘E’: [], 
+‘F’: [] 
+}  
+Dls(graph, ‘A’, 2)  
+
+Q2)Write a program to implement Bernoulli NB classifier with 2 classes on Numeric data, use make_classification to create a dataset X of 300 sample Points in 2D space with the following parameters : N_features=2, n_informative=2, n_redundant=0, n_classes=2. 
+For testing (Prediction), use the following values to test the Bernoulli NB Classifier. 
+Input (Values) : [[0, 0], [0, 1], [1, 0], [1, 1]] 
+Output : [0, 1, 0, 1]  
+From sklearn.datasets import make_classification 
+From sklearn.naive_bayes import BernoulliNB 
+X, y = make_classification(n_samples=300, n_features=2,                            
+N_informative=2, n_redundant=0,                            
+N_classes=2, random_state=42) 
+Model = BernoulliNB() 
+Model.fit(X, y) 
+Test = [[0, 0], [0, 1], [1, 0], [1, 1]] 
+Print(“Output:”, model.predict(test))   

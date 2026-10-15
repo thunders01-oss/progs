@@ -1,0 +1,36 @@
+Slip2 Q1)Write a program to solve the Water Jug Problem using Bfrom collections import deque
+ Def water_jug():    
+ Q = deque([(0, 0)])    
+ Visited = set()    
+ While q:         
+A, b = q.popleft()          
+If (a, b) in visited:             
+Continue         
+Visited.add((a, b))         
+Print(a, b)          
+If a == 2 or b == 2:             
+Print(“Goal Reached!”)             
+Return          
+q.extend([             
+(4, b), (a, 3), (0, b), (a, 0),             
+(a – min(a, 3-b), b + min(a, 3-b)),             
+(a + min(b, 4-a), b – min(b, 4-a))
+   ])  
+water_jug()
+
+Q2)Write a program to implement the Backtracking Algorithm for solving a Constraint satisfaction problem. 
+ Def backtrack(assignment, variables, domains):    
+ If len(assignment) == len(variables):         
+Return assignment     
+ Var = next(v for v in variables if v not in assignment)      
+For value in domains:         
+If value not in assignment.values():             
+Assignment[var] = value             
+Result = backtrack(assignment, variables, domains)              
+If result:                 
+Return result             
+Del assignment[var]      
+Return None  
+Variables = [‘A’, ‘B’, ‘C’] 
+Domains = [1, 2, 3]  
+Print(“Solution:”, backtrack({}, variables, domains))  

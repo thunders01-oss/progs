@@ -1,0 +1,39 @@
+Slip25  Q1)Write the program to implement the AO* Algorithm 
+Graph = {     
+‘A’: [[(‘B’, 1), (‘C’, 1)]],     
+‘B’: [[(‘D’, 1)], [(‘E’, 1)]],     
+‘C’: [[(‘F’, 1)]],     
+‘D’: [],     
+‘E’: [],     
+‘F’: [] }  
+Heuristic = {‘A’: 3, ‘B’: 2, ‘C’: 1, ‘D’: 0, ‘E’: 0, ‘F’: 0}  
+Def ao_star(node):     
+If not graph[node]:         
+Return heuristic[node]      
+Costs = []     
+For group in graph[node]:         
+Cost = sum(weight + ao_star(child) for child, weight in group)         
+Costs.append(cost)      
+Heuristic[node] = min(costs)     
+Return heuristic[node]  
+Ao_star(‘A’)  
+Print(“AO* Algorithm”) 
+For node in heuristic:     
+Print(node, “:”, heuristic[node])    
+
+Q2)Write a program to implement the Forward Chaining inference Mechanism.   
+Facts = {“A”, “B”}  
+Rules = [     
+({“A”, “B”}, “C”),     
+({“C”}, “D”),     
+({“D”}, “E”) ]  
+While True:     
+New_fact = False      
+For condition, result in rules:         
+If condition.issubset(facts) and result not in facts:             
+Facts.add(result)             
+Print(“New fact:”, result)             
+New_fact = True      
+If not new_fact: 
+Break 
+Print(“Final facts:”, facts) 

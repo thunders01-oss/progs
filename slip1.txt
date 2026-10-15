@@ -1,0 +1,40 @@
+Slip :-1  Q1) Write a program to implement Breadth First Search (BFS) for the Monkey Banana Problem. 
+ From collections import deque 
+Def bfs():    
+ Q = deque([“Monkey at Door”])    
+ Visited = set()
+  While q:        
+ State = q.popleft()        
+ If state in visited:            
+ Continue       
+  Visited.add(state) 
+  Print(state)        
+ If state == “Got Banana”:             
+Print(“Success!”)            
+ Return         
+If state == “Monkey at Door”:            
+ q.append(“Monkey near Box”)        
+ elif state == “Monkey near Box”:            
+ q.append(“Monkey on Box”)        
+ elif state == “Monkey on Box”:            
+ q.append(“Got Banana”) bfs()  
+
+ Q2)  Write a program to implement the A* Search Algorithm to find the Shortest path between a source node and a destination node. 
+ Import heapq 
+Def astar(graph, h, start, goal):    
+ Q = [(h[start], 0, start, [start])] 
+    While q:        
+ F, cost, node, path = heapq.heappop(q)        
+ If node == goal:            
+ Print(“Shortest Path:”, path)             Print(“Cost:”, cost)             Return         For next_node, weight in graph[node]:            
+ G = cost + weight             
+Heapq.heappush(q, (g + h[next_node], g, next_node, path + [next_node]))
+ Graph = {    
+ ‘A’: [(‘B’, 1), (‘C’, 4)],  
+ ‘B’: [(‘D’, 2), (‘E’, 5)],    
+ ‘C’: [(‘E’, 1)],   
+ ‘D’: [(‘E’, 1)],     
+ ‘E’: []
+   }
+ H = {‘A’: 4, ‘B’: 3, ‘C’: 1, ‘D’: 1, ‘E’: 0} 
+Astar(graph, h, ‘A’, ‘E’)  

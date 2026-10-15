@@ -1,0 +1,56 @@
+Slip8 Q1)Write a program to solve the 4-Puzzle Problem using the A* Search Algorithm.
+Import heapq 
+Goal = (1, 2, 3, 0)  
+Def heuristic(s):     
+Return sum(s[i] != goal[i] 
+for I in range(4))  
+Def astar(start):     
+Q = [(heuristic(start), 0, start)]     
+Visited = set()      
+While q:         
+F, g, s = heapq.heappop(q)         
+If s == goal:             
+Print(“Puzzle Solved:”, s)             
+Return          
+If s in visited:             
+Continue         
+Visited.add(s)          
+I = s.index(0)         
+For j in range(4):             
+If abs(I // 2 – j // 2) + abs(I % 2 – j % 2) == 1:                 
+T = list(s)                 
+T[i], t[j] = t[j], t[i]                 
+T = tuple(t)                 
+If t not in visited:                     
+Heapq.heappush(q, (g + 1 + heuristic(t), g + 1, t))  
+Astar((1, 2, 0, 3))  
+
+Q2)Write a program or report that compares Minimax and Alpha-Beta Pruning on the same game tree 
+Def minimax(tree, depth, node):     
+If depth == 2:         
+Return tree[node]     
+Return max(minimax(tree, depth+1, node*2+i) 
+for I in range(2)) 
+if depth == 0 else min(minimax(tree, depth+1, node*2+i) 
+for I in range(2))  
+Def alphabeta(tree, depth, node, alpha, beta, maximizing):     
+If depth == 2:         
+Return tree[node]     
+If maximizing:         
+Best = -999         
+For I in range(2):             
+Best = max(best, alphabeta(tree, depth+1, node*2+I, alpha, beta, False))             
+Alpha = max(alpha, best)             
+If beta <= alpha:                 
+Break         
+Return best     
+Else:         
+Best = 999         
+For I in range(2):             
+Best = min(best, alphabeta(tree, depth+1, node*2+I, alpha, beta, True))             
+Beta = min(beta, best)             
+If beta <= alpha:                 
+Break         
+Return best  Tree = [3, 5, 6, 9] 
+Print(“Minimax:”, minimax(tree, 0, 0)) 
+Print(“Alpha-Beta:”,alphabeta(tree, 0, 0, -999, 999, True)) 

@@ -1,0 +1,38 @@
+Slip17 Q1) Write a program to implement the Best First Search Algorithm using heuristic values to find a path from a start node to a goal node  
+import heapq  
+Def best_first_search(graph, h, start, goal):     
+Queue = [(h[start], start, [start])]     
+Visited = set()      
+While queue:         
+_, node, path = heapq.heappop(queue)        
+If node == goal:             
+Return path          
+If node not in visited:             
+Visited.add(node)              
+For neighbor in graph[node]:                 
+If neighbor not in visited:                     
+Heapq.heappush(queue, (h[neighbor], neighbor, path + [neighbor]))      
+Return None  
+Graph = {     
+‘A’: [‘B’, ‘C’],     
+‘B’: [‘D’, ‘E’],     
+‘C’: [‘F’],     
+‘D’: [],     
+‘E’: [],     
+‘F’: [] }  
+H = {
+‘A’: 5, 
+‘B’: 3, 
+‘C’: 4, 
+‘D’: 2, 
+‘E’: 0, 
+‘F’: 1}  
+Path = best_first_search(graph, h, ‘A’, ‘E’) 
+Print(“Path:”, path)  
+
+Q2)Write a program to implement Propositional Logic and evaluate logical Expressions using operators such as AND, OR, and IMPLIES.
+A = True 
+B = False  
+Print(“AND:”, A and B) 
+Print(“OR:”, A or B) 
+Print(“IMPLIES:”, (not A) or B) 

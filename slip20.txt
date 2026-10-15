@@ -1,0 +1,35 @@
+Slip20 Q1)Write a program to demonstrate the Hill Climbing Algorithm for Finding the maximum value of a simple objective function 
+Def f(x): 
+Return -x**2 + 6*x X = 0 
+While True:     
+If f(x + 1) > f(x):         
+X += 1     
+Elif f(x – 1) > f(x):         
+X -= 1     
+Else:         
+Break  
+Print(“Maximum value:”, f(x)) 
+Print(“At x =”, x)   
+
+Q2)Write a program to implement a Convolutional Neural Network (CNN)  For basic object detection.( person, car, or dog)  
+Import cv2 
+Model = cv2.dnn.readNetFromCaffe(     
+“MobileNetSSD_deploy.prototxt”,     
+“MobileNetSSD_deploy.caffemodel” )  
+Classes = [“background”, “aeroplane”, “bicycle”, “bird”, “boat”,            
+“bottle”, “bus”, “car”, “cat”, “chair”, “cow”, “table”,            
+“dog”, “horse”, “motorbike”, “person”, “plant”, “sheep”,            
+“sofa”, “train”, “tvmonitor”] 
+Image = cv2.imread(“image.jpg”) 
+Blob = cv2.dnn.blobFromImage( 
+Cv2.resize(image, (300, 300)), 0.007843, (300, 300), 127.5 )
+Model.setInput(blob) 
+Detections = model.forward() 
+For I in range(detections.shape[2]): 
+Confidence = detections[0, 0, I, 2] 
+Idx = int(detections[0, 0, I, 1]) 
+If confidence > 0.5 and classes[idx] in [“person”, “car”, “dog”]:
+Print(“Detected:”, classes[idx]) 
+Cv2.imshow(“Object Detection”, image) 
+Cv2.waitKey(0) 
+Cv2.destroyAllWindows() 
